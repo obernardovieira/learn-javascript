@@ -9,18 +9,22 @@ const mongo_url = 'mongodb://' +
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
-var server;
+var server
 
 //const fs = require('fs')
 const Log = require('log')
 const log = new Log('info'/*, fs.createWriteStream('my.log')*/)
 
+var bodyParser = require('body-parser')
 
 var users = require('./routes/users')
-var loko = require('./routes/loko')
 
-app.use('/user', users)
-app.use('/loko', loko.method)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use('/user', users.getuser, users.postuser, users.deleteuser)
+app.use('/users', users.getallusers)
+
 app.use(function(request, response, next) {
     var myData = {status : 404}
     response.json(JSON.stringify(myData))
