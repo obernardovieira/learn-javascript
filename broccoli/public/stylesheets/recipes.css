@@ -1,0 +1,37 @@
+﻿.on-center {
+    margin: 0 auto;
+    text-align: center;
+}
+.on-center-new {
+    width: 50%;
+}
+input {
+    width: 100%;
+}
+input[type=submit], input[type=reset] {
+    width: 50%;
+}
+.recipes-list {
+    width: 80%;
+    height: 50px;
+    float: left;
+}
+.add-new-recipe {
+    font-style: italic;
+    width: 15%;
+    margin: 0% 2.5%;
+    height: 10px;
+    float: left;
+}
+.recipe {
+    
+}
+.recipe-title {
+
+}
+.recipe-description {
+
+}
+.recipe-time {
+
+}

@@ -1,0 +1,39 @@
+﻿extends layout
+
+block header
+    link(rel='stylesheet', href='/stylesheets/recipes.css')
+
+block content
+  
+
+    
+
+    - if(new_recipe != undefined) {
+        .on-center.on-center-new
+            h1= title
+
+            form(method='POST' action='/recipes/new')
+                input(name="recipe_name", size="34", type="text", placeholder="Name" required).custom-input
+                <br>
+                input(name="time_to_prepare", size="34", type="number", placeholder="Time" required).custom-input
+                <br>
+                div(style="width:100%; padding:10px;")
+                    input(type="reset" value="Reset").custom-form-button
+                    input(type="submit" value="Create").custom-form-button
+    - } else {
+        .on-center
+            h1= title
+
+            .recipes-list
+                - if(recipes == undefined) {
+                    p You dont have any recipes yet!
+                - } else {
+                    ul
+                        - for (var r = 0; r < recipes.length; ++r) {
+                            li= recipes[r]
+                        - }
+                - }
+
+            .add-new-recipe
+                p Add a new recipe by clicking #[a(href="/recipes/new") here] !
+    - }

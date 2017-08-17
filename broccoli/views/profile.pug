@@ -1,0 +1,18 @@
+﻿extends layout
+
+block header
+    link(rel='stylesheet', href='/stylesheets/profile.css')
+
+block content
+
+    .on-center
+        h1= username
+
+        - if(recipes != undefined) {
+            ul
+                - for (var r = 0; r < recipes.length; ++r) {
+                    li= recipes[r]
+                - }
+        - } else {
+            p= "You dont have any recipes. Add a new one!"
+        - }

@@ -1,0 +1,21 @@
+﻿doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    block header
+    
+  body
+
+    .header-logo
+        img(src="images/broccoli.jpg")
+        span Broccoli
+
+    .header-navbar
+        - var links = ['/index', '/profile', '/recipes', '/find', '/follow', '/logout'];
+        - var values = ['Home', 'Profile', 'Recipes', 'Find', 'Follow', 'Logout'];
+        ul
+            each val, index in values
+                li: a(href= links[index])= val
+
+    block content

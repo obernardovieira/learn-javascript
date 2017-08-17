@@ -1,0 +1,16 @@
+﻿extends layout
+
+block header
+    link(rel='stylesheet', href='/stylesheets/authentication.css')
+
+block content
+
+  .on-center
+        h1= title
+
+        form(method='POST' action='/login')
+            input(name="username", size="34", type="text", placeholder="Username" required).custom-input
+            <br>
+            input(name="password", size="34", type="password", placeholder="Password" required).custom-input
+            <br>
+            input(type="submit" style="width: 44%;" value="Register").custom-form-button
